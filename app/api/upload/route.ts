@@ -18,8 +18,8 @@ export async function POST(request: NextRequest) {
 
     const params = {
       Bucket: process.env.S3_BUCKET_NAME,
-      Key: name,
-      Body: file
+      Key: name as string,
+      Body: file || undefined
     };
 
     try {
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json( { success: true, data: response });
     } catch (error) {
       console.log(error)
-      return NextResponse.json({ success: false, error: error.message });
+      return NextResponse.json({ success: false});
     }
   } else {
     return NextResponse.json({ error: 'Method not allowed' });
