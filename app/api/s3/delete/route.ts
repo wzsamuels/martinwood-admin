@@ -5,11 +5,7 @@ import {NextRequest, NextResponse} from "next/server";
 
 // Create an S3 client object
 const s3Client = new S3Client({
-  region: process.env.AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-  }
+  region: process.env.AWS_REGION
 });
 
 export async function POST(request: NextRequest) {
@@ -26,6 +22,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json( { success: true});
   } catch (error) {
     console.log(error)
-    return NextResponse.json({ success: false, error: error.message });
+    return NextResponse.json({ success: false});
   }
 }

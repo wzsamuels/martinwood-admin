@@ -71,6 +71,7 @@ const NewPieceModal = ({isOpen, setIsOpen, setProducts} : NewPieceModalProps) =>
     const res = await newPiece.json()
     console.log(res.newProduct)
     if(res.newProduct) {
+      // @ts-ignore
       setProducts(state =>
         [...state, {description: data.description, category: data.category, image: res.newProduct.image, id: res.newProduct.id}])
     }
