@@ -32,6 +32,12 @@ const NewCategoryModal = ({isOpen, setIsOpen, setCategories} : NewCategoryModalP
     setIsLoading(false)
   }
 
+  const dismissModal = () => {
+    setIsOpen(false)
+    setMessage('')
+    reset()
+  }
+
   const renderModalContent = () => {
     if(isLoading) return (
       <div>
@@ -44,7 +50,7 @@ const NewCategoryModal = ({isOpen, setIsOpen, setCategories} : NewCategoryModalP
         <div>
           <p className='my-4'>{message}</p>
           <div className='flex justify-center'>
-            <Button onClick={() => setIsOpen(false)}>OK</Button>
+            <Button onClick={dismissModal}>OK</Button>
           </div>
         </div>
       )
@@ -62,7 +68,7 @@ const NewCategoryModal = ({isOpen, setIsOpen, setCategories} : NewCategoryModalP
   }
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen} className='max-w-4xl' title='New Category'>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} onClose={dismissModal} className='max-w-4xl' title='New Category'>
       {renderModalContent()}
     </Modal>
   )
