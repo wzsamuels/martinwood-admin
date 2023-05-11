@@ -2,16 +2,12 @@
 
 import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
 import Image from "next/image";
-import Segment from "@/components/common/Segment/Segment";
 import { Prisma } from "@prisma/client"
-import {signIn, signOut, useSession} from "next-auth/react";
+import {signOut, useSession} from "next-auth/react";
 import Button from "@/components/Button";
-import {BiPlus} from "react-icons/bi";
 import {SubmitHandler, useForm} from "react-hook-form";
 import InputWrapper from "@/components/common/InputWrapper/InputWrapper";
-import Input from "@/components/common/Input/Input";
 import Label from "@/components/common/Label/Label";
-import NewModal from "@/components/NewPieceModal";
 import PieceInputs from "@/types/PieceInputs";
 import ConfirmationModal from "@/components/ConfirmationModal";
 import NewPieceModal from "@/components/NewPieceModal";
@@ -24,7 +20,6 @@ const segmentItems = [
 ];
 
 const Account = () => {
-  const [segmentType, setSegmentType] = useState('pieces')
   const [products, setProducts] = useState<Prisma.productsCreateInput[]>([])
   const [categories, setCategories] = useState([])
   const { data: session } = useSession()
@@ -76,7 +71,6 @@ const Account = () => {
 
 const Product = ({product, categories, setProducts}: {product: Prisma.productsCreateInput, categories: Prisma.categoriesCreateInput[], setProducts: Dispatch<SetStateAction<Prisma.productsCreateInput[]>>}) => {
   const [message, setMessage] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
   const [confirmationModal, setConfirmationModal] = useState(false)
 
   const { register, handleSubmit, formState: { errors } } = useForm<PieceInputs>({
