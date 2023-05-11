@@ -13,15 +13,9 @@ import ConfirmationModal from "@/components/ConfirmationModal";
 import NewPieceModal from "@/components/NewPieceModal";
 import NewCategoryModal from "@/components/NewCategoryModal";
 
-const segmentItems = [
-  { type: 'pieces', label: 'Pieces' },
-  { type: 'categories', label: 'Categories' },
-
-];
-
 const Account = () => {
   const [products, setProducts] = useState<Prisma.productsCreateInput[]>([])
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState<Prisma.categoriesCreateInput[]>([])
   const { data: session } = useSession()
 
   const [isNewCategoryModalOpen, setIsNewCategoryModalOpen] = useState(false)
@@ -73,7 +67,7 @@ const Product = ({product, categories, setProducts}: {product: Prisma.productsCr
   const [message, setMessage] = useState('')
   const [confirmationModal, setConfirmationModal] = useState(false)
 
-  const { register, handleSubmit, formState: { errors } } = useForm<PieceInputs>({
+  const { register, handleSubmit } = useForm<PieceInputs>({
     defaultValues: {
       description: product.description,
       category: product.category
