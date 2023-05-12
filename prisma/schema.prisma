@@ -9,7 +9,7 @@ datasource db {
 
 model categories {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
-  image String?
+  image String
   name  String
 }
 

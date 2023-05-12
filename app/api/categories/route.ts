@@ -10,11 +10,12 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
 
-  const { name } = await request.json();
+  const { name, image } = await request.json();
 
   const category = await prisma.categories.create({
     data: {
       name,
+      image
     },
   });
 
@@ -22,7 +23,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest)  {
-  const { id, name } = await request.json();
+  const { id, name, image } = await request.json();
 
   const category = await prisma.categories.update({
     where: {
@@ -30,6 +31,7 @@ export async function PATCH(request: NextRequest)  {
     },
     data: {
       name,
+      image,
     },
   });
 
