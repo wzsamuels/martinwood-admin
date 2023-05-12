@@ -44,7 +44,7 @@ const Segment: React.FC<SegmentProps> = ({ segmentType, setSegmentType, items })
   };
 
   return (
-    <div className="w-full flex justify-between h-full relative max-w-4xl">
+    <div className="w-full flex justify-between h-full relative max-w-4xl mx-auto">
       {items.map((item) => (
         <button
           key={item.type}
