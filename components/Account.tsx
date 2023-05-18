@@ -86,7 +86,7 @@ const Account = () => {
         <>
           <h1 className='text-center text-2xl font-bold mb-4'>Reviews Needing Approval</h1>
           {
-            reviewsApproved.length > 0 ? reviewsUnapproved.map(review =>
+            reviewsUnapproved.length > 0 ? reviewsUnapproved.map(review =>
               <Review review={review} setApprovedReviews={setReviewsApproved} setUnapprovedReviews={setReviewsUnapproved} key={review.id}/>
             )
               :
