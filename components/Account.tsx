@@ -86,15 +86,19 @@ const Account = () => {
         <>
           <h1 className='text-center text-2xl font-bold mb-4'>Reviews Needing Approval</h1>
           {
-            reviewsUnapproved.map(review =>
+            reviewsApproved.length > 0 ? reviewsUnapproved.map(review =>
               <Review review={review} setApprovedReviews={setReviewsApproved} setUnapprovedReviews={setReviewsUnapproved} key={review.id}/>
             )
+              :
+              <h2 className='my-6 text-xl'>No reviews need approval.</h2>
           }
           <h1 className='text-center text-2xl font-bold mb-4'>Approved Reviews</h1>
           {
-            reviewsApproved.map(review =>
+            reviewsApproved.length > 0 ? reviewsApproved.map(review =>
               <Review review={review} setApprovedReviews={setReviewsApproved} setUnapprovedReviews={setReviewsUnapproved} key={review.id}/>
             )
+              :
+              <h2 className='my-6 text-xl'>No approved reviews.</h2>
           }
         </>
       )
