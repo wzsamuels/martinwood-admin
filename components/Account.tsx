@@ -90,7 +90,7 @@ const Account = () => {
               <Review review={review} setApprovedReviews={setReviewsApproved} setUnapprovedReviews={setReviewsUnapproved} key={review.id}/>
             )
               :
-              <h2 className='my-6 text-xl'>No reviews need approval.</h2>
+              <h2 className='my-6 text-xl p-4'>No reviews need approval.</h2>
           }
           <h1 className='text-center text-2xl font-bold mb-4'>Approved Reviews</h1>
           {
@@ -98,7 +98,7 @@ const Account = () => {
               <Review review={review} setApprovedReviews={setReviewsApproved} setUnapprovedReviews={setReviewsUnapproved} key={review.id}/>
             )
               :
-              <h2 className='my-6 text-xl'>No approved reviews.</h2>
+              <h2 className='my-6 text-xl p-4'>No approved reviews.</h2>
           }
         </>
       )
