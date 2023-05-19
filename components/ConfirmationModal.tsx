@@ -10,7 +10,7 @@ interface ConfirmationModalProps extends ModalProps {
 
 const ConfirmationModal = ({onConfirm, onCancel, isOpen, setIsOpen, message} : ConfirmationModalProps) => {
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} className='w-full max-w-xl'>
       <div className="mx-auto">
         <div>
           {message}
